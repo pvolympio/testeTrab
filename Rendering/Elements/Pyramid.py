@@ -7,7 +7,7 @@ vertices = (
     ( 1, -1, -1),
     (-1, -1, -1),
     (-1, -1,  1), 
-    ( 0,  1,  0)  
+    ( 0,  4,  0)  
 )
 edges = (
     (0,1), (1,2), (2,3), (3,0), 
@@ -21,16 +21,8 @@ surfaces = (
     (0,2,1),  
     (0,3,2)  
 )
-colors = (
-    (1, 0.5, 0),  
-    (1, 0, 0),    
-    (0, 1, 0),    
-    (0, 0, 1),    
-    (0.5, 0.5, 0),
-    (0.5, 0.5, 0) 
-)
 
-def draw_pyramid(position):
+def draw_pyramid(position, color):
     x, y, z = position[0], position[1], position[2]
 
     glPushMatrix()
@@ -38,16 +30,8 @@ def draw_pyramid(position):
 
     glBegin(GL_TRIANGLES)
     for i, surface in enumerate(surfaces):
-        glColor3fv(colors[i])
+        glColor3fv(color)
         for vertex in surface:
-            glVertex3fv(vertices[vertex])
-    glEnd()
-
-    glColor3f(1, 1, 1)
-
-    glBegin(GL_LINES)
-    for edge in edges:
-        for vertex in edge:
             glVertex3fv(vertices[vertex])
     glEnd()
 

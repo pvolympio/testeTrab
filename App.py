@@ -4,7 +4,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 from teste.Camera import handle_camera, initialize_camera
-from teste.Rendering.Scene import draw_scene
+from teste.Rendering.Scene import draw_scene, initialize_scene
 
 WIDTH, HEIGHT = 1024, 768
 TITLE = "Trabalho CMCO05"
@@ -27,6 +27,7 @@ def initialize_app():
     clock = pygame.time.Clock()
 
     initialize_camera(WIDTH, HEIGHT)
+    initialize_scene()
 
 def run_app():
     #Loop principal da aplicação

@@ -2,14 +2,14 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 vertices = (
-    (1, -1, -1),
-    (1, 1, -1),
-    (-1, 1, -1),
-    (-1, -1, -1),
-    (1, -1, 1),
-    (1, 1, 1),
-    (-1, -1, 1),
-    (-1, 1, 1)
+    (0.2, -1, -0.2),
+    (0.2, 1, -0.2),
+    (-0.2, 1, -0.2),
+    (-0.2, -1, -0.2),
+    (0.2, -1, 0.2),
+    (0.2, 1, 0.2),
+    (-0.2, -1, 0.2),
+    (-0.2, 1, 0.2)
 )
 edges = (
     (0,1), (1,2), (2,3), (3,0),
@@ -24,16 +24,8 @@ surfaces = (
     (1,5,7,2),
     (4,0,3,6)
 )
-colors = (
-    (1,0,0),
-    (0,1,0),
-    (0,0,1),
-    (1,1,0),
-    (1,0,1),
-    (0,1,1),
-)
 
-def draw_cube(position):
+def draw_cube(position, color):
     x, y, z = position[0], position[1], position[2]
 
     glPushMatrix()
@@ -42,7 +34,7 @@ def draw_cube(position):
     #Desenha as faces do cubo
     glBegin(GL_QUADS)
     for i, surface in enumerate(surfaces):
-        glColor3fv(colors[i])
+        glColor3fv(color)
         for vertex in surface:
             glVertex3fv(vertices[vertex])
     glEnd()

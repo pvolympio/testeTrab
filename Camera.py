@@ -21,7 +21,7 @@ def initialize_camera(width: int, height: int):
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
 
-    gluPerspective(60, width / height, 0.1, 50)
+    gluPerspective(60, width / height, 0.1, 200)
 
     glMatrixMode(GL_MODELVIEW)
 
